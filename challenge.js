@@ -10,14 +10,29 @@ let commentForm = document.getElementById('comment-form')
 let likesUl = document.getElementsByClassName('likes')[0]
 
 document.addEventListener("DOMContentLoaded", function(){
-    // let counterInteger = parseInt(counterH1.innerText)
-    window.setInterval(increment, 1000)
+    let intervalCounter = window.setInterval(increment, 1000)
     function increment(){
         parseInt(counterH1.innerText++)
     }
+
+    document.addEventListener("click", function(event){
+        if (event.target === minusButton){
+            console.log("minus")
+        }
+        if (event.target === plusButton){
+            console.log("plus")
+        }
+        if (event.target === likeButton){
+            console.log("like")
+        }
+        if (event.target === pauseButton){
+            clearInterval(intervalCounter)
+        }
+    })
 })
 
 commentForm.addEventListener("submit", function(event){
     event.preventDefault()
     console.log(event.target.elements[0].value)
 })
+
