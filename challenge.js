@@ -62,6 +62,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 commentForm.addEventListener("submit", function(event){
     event.preventDefault()
-    console.log(event.target.elements[0].value)
+    let p = document.createElement('p')
+    p.innerText = event.target.comment.value
+    commentDiv.append(p)
+    commentForm.reset()
 })
 
